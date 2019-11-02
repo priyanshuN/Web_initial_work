@@ -1,0 +1,90 @@
+<html>
+    <head>
+        <title>jQuery</title>
+        <!--script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script-->
+        <script type="text/javascript" src="jquery-3.3.1.min.js"></script>
+        <style type="text/css">
+            #circle{
+                width:100px;
+                height:100px;
+                border-radius:50%;
+                margin:20px;
+                background-color:green;
+            }
+            .square{
+                width:100px;
+                height:100px;
+                margin:20px;
+                background-color:blue;
+            }
+        </style>
+    </head>
+    <body>
+        <div id ="circle"></div>
+        <div class="square"></div>
+        <div class="square"></div>
+        <p id ="lol">This is black hole.</p>
+        <p>
+            <div id="lost">Forever Young.</div>
+            <button id="press">Clinch.</button>
+        </p>
+        <p id="in">Calling all autofools.</p>
+        <button id="appear">Surprise.</button>
+        <p>
+            <p id="toggle">Welcome and daeng.</p>
+            <button id="io">Daeng!</button>
+        </p>
+    
+        <!--iframe width="560" height="315" src="https://www.youtube.com/embed/iJJSh-eEdRk" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe-->
+        <script>
+            /*if(typeof jQuery=="undefined"){
+                alert("Jquery is not installed");
+            }
+            else{
+                alert("jQuery is installed");
+            }*/
+            /*$("#circle").click(function(){
+                //alert($("#lol").html());
+                //$("#lol").html("Now you are in black hole!");
+                $("#circle").css("background-color","red");
+                alert($("body").css("width"));
+            });*/
+            /*$("div").click(function(){
+                if($(this).attr("id")=="circle"){
+                    alert("This is circle.");
+                }
+               $(this).css("display","none"); 
+            });*/
+            /*$("#circle").hover(function(){
+               //alert($("#lol").html()); 
+                $("iframe").attr("src","http://codestars.com");
+            });*/
+            /*$("div").click(function(){
+               $(this).fadeOut("slow"); 
+            });
+            $("#press").click(function(){
+                $("#lost").fadeOut("slow");
+            });
+            $("#in").css("display","none");
+            $("#appear").click(function(){
+               $("#in").fadeIn(); 
+            });*/
+            $("#io").click(function(){
+               if($("#toggle").css("display")=="none"){
+                   $("#toggle").fadeIn();
+               }
+               else{
+                   $("#toggle").fadeOut("slow");
+               }
+            });
+            $("#circle").click(function(){
+               $(this).animate({
+                   width:"300px",
+                   height:"300px",
+                   marginLeft:"50px",
+                   marginTop:"50px"
+               },2000); 
+            });
+        </script>
+    </body>
+</html>

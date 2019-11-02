@@ -1,0 +1,114 @@
+<html>
+    <head>
+        <title>FormValidation</title>
+        <script src="jquery-3.3.1.min.js" type="text/javascript"></script>
+        <script src="jquery-ui.js"></script>
+        <link href="jquery-ui/jquery-ui.css" rel="stylesheet">
+        <style type="text/css">
+            body{
+                font-family:helvetica, sans-serif;
+                font-size:150%;
+            }
+            input{
+                padding:5px 5px 12px 5px;
+                font-size:25px;
+                border-radius:5px;
+                border:1px solid grey;
+                width:320px;
+            }
+            label{
+                position:relative;
+                top:4px;
+                width:200px;
+                float:left;
+            }
+            #wrapper{
+                width:550px;
+                margin:0 auto;
+            }
+            .space{
+                margin-bottom:10px;
+            }
+            #submitbutton{
+                width:120px;
+                margin-left:200px;
+                font-family: cursive;
+            }
+            #err{
+                color:red;
+                font-size:50% ;important;
+            }
+            #success{
+                color:green;
+                font-size:100%;
+                display:none;
+                margin-bottom: :20px;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="wrapper">
+            <div id="success">Fool</div>
+            <div id="err"></div>
+            <div class="space">
+                <label for="email">Email</label>
+                <input type="text" name="Mail" id="email" placeholder="eg.daeng.com">
+            </div>
+            <div class="space">
+                <label for="mobile">Mobile</label>
+                <input type="text" name="Mobile" id="mobile" placeholder="eg.1234567891">
+            </div>
+            <div class="space">
+                <label for="password">Password</label>
+                <input type="password" name="Password" id="password">
+            </div>
+            <div class="space">
+                <label for="passwordconfirm">ConfirmPassword</label>
+                <input type="password" name="passwordconfirm" id="passwordconfirm">
+            </div>
+            <div class="space">
+                <input type="submit" id="submitbutton" value="Sign Up">
+            </div>
+        </div>
+        <script type="text/javascript">
+            function isEmail(email) {
+              var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+              return regex.test(email);
+            }
+            $("#submitbutton").click(function(){
+                var error="";
+                var field="";
+                if($("#email").val()==""){
+                    field+="<br>Email";
+                }
+                if($("#mobile").val()==""){
+                    field+="<br>Mobile";
+                }
+                if($("#password").val()==""){
+                    field+="<br>Password";
+                }
+                if($("#passwordconfirm").val()==""){
+                    field+="<br>Confirm Password";
+                }
+                if(field!=""){
+                    error+="<p>Following field are missing</p>"+field;
+                }
+                if(isEmail($("#email").val())==false){
+                    error+="<p>Not valid address daeng</p>";
+                }
+                if($.isNumeric($("#mobile").val())==false){
+                    error+="<p>No is not valid</p>";
+                }
+                if($("#password").val()!=$("#passwordconfirm").val()){
+                    error+="<p>Password doen't match</p>";
+                }
+                if(error!=""){
+                    $("#err").html(error);
+                }else{
+                    $("#success").show();
+                    $("#err").hide();
+                }
+            });
+        </script>
+    </body>
+</html>

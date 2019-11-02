@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>   
+    <head>
+        <title>My App</title>
+        <meta name="viewport" content="width=device-width,initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+        <link rel="stylesheet" href="app.min.css">
+    </head>
+    <body>
+        <div class="app-page" data-page="home">
+            <div class="app-topbar">
+                <div class="app-title">Send Email</div>
+            </div>
+            <div class="app-content">
+                <div class="app-section">
+                    <p>Click to send email</p>
+                </div>
+                <div class="app-section" id="contact-list"></div>
+                <div class="app-section">
+                    <div class="app-button blue" id="new-email">Send to new user</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="app-page" data-page="sendemail">
+            <div class="app-topbar">
+                <div class="app-title">Send Email</div>
+                <div class="right app-button app-menu" data-back>Done</div>
+            </div>
+            
+            <div class="app-content">
+                <form class="app-section">
+                    <!--label for="sendermail">From:</label-->
+                    <input class="app-input" id="sender-email" placeholder="Send Email Address">
+                </form>
+                
+                <form class="app-section">
+                    <!--label for="recipientmail">To:</label-->
+                    <input class="app-input" id="recipient-email" placeholder="Recipient Email Address">
+                </form>
+                
+                <form class="app-section">
+                    <input class="app-input" id="subject" placeholder="Subject">
+                    <textarea class="app-input" id="message" placeholder="Message"></textarea>
+                    <div class="app-button green app-submit" id="send-button">Send</div>
+                </form>
+            
+            </div>
+        
+        </div>
+    
+        <script src="zepto.js"></script>
+        <script src="app.min.js"></script>
+        
+        <script>
+            
+            App.controller('home',function(page){
+                
+                if(typeof localStorage != "undefined"){
+                    
+                    $(page).find("#new-email").clickable().click(function(){
+                        if(localStorage.getItem("recipient-email")!=null){
+                            localStorage.removeItem("recipient-email")
+                        }
+                            
+                        App.load('sendemail');
+                            
+                    });
+                    
+                    if(localStorage.getItem("recipient-list") != null){
+                        
+                        var recipientList=JSON.parse(localStorage.getItem("recipient-list"));
+                        $.each(recipientList,function(index,value){
+                            
+                           $(page).find("#contact-list").append('<div class="app-button redirect">'+value+'</div>');
+                        });
+                         $(page).find("#contact-list").show();
+                        
+                        $(page).find(".redirect").clickable().click(function(){
+                            
+                           localStorage.setItem("recipient-email",$(this).html());
+                            App.load('sendemail');
+                            
+                        });
+                    }
+                    else{
+                        $(page).find("contact-list").hide();
+                    }
+                }
+                
+            });
+            
+            App.controller('sendemail',function(page){
+                
+                
+                
+                if(localStorage.getItem("sender-email") != null){
+                    
+                    $(page).find("#sender-email").val(localStorage.getItem("sender-email"));
+                }
+                
+                if(localStorage.getItem("recipient-email")!=null){
+                    
+                    $(page).find("#recipient-email").val(localStorage.getItem("recipient-email"));
+                    
+                }
+                
+                
+                $(page).find("#send-button").clickable().click(function(){
+                    
+                    $.ajax({
+  type: 'GET',
+  url: 'http://completewebdevelopercourse.com/content/9-mobileapps/sendemail.php?callback=response',
+  // data to be added to query string:
+  data: { to: $("#recipient-email").val(), from: $("#sender-email").val(), subject: $("#subject").val(), content: $("#message").val()},
+  // type of data we are expecting in return:
+  dataType: 'jsonp',
+  timeout: 300,
+  context: $('body'),
+  success:function(data){
+      alert(data.success)
+  },
+  error: function(xhr, type){
+    alert('Ajax error!')
+  }
+})
+                    
+                    
+                   if(typeof localStorage != "undefined"){
+                        
+                       localStorage.setItem("sender-email",$("#sender-email").val());    
+                       
+                       var recipientList = new Array();
+                    
+                       //localStorage.setItem("recipient-email",$("#recipient-email").val());
+                       
+                       if(localStorage.getItem("recipient-list")!=null){  
+                        recipientList=JSON.parse(localStorage.getItem("recipient-list"));
+                           
+                       }
+                       
+                       if($.inArray($("#recipient-email").val(),recipientList)==-1){
+                           
+                           recipientList.push($("#recipient-email").val());
+                           recipientList.sort();
+                           localStorage.setItem("recipient-list",JSON.stringify(recipientList));
+                           console.log(recipientList);
+                       }
+                       
+                    }
+                    
+                });
+                      
+            });
+            
+            try {
+                App.restore();
+              } catch (err) {
+                App.load('home');
+              }
+        
+        </script>
+    
+    
+    </body>
+ 
+    

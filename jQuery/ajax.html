@@ -1,0 +1,18 @@
+<html>
+    <head>
+        <title>Ajax</title>
+        <script type="text/javascript" src="jquery-3.3.1.min.js"></script>
+    </head>
+    <body>
+        <script type="text/javascript">
+            /*$.get("info.txt",function(data){
+                alert(data);
+            });*/
+            $.ajax("info.txt").done(function(data){
+               alert(data); 
+            }).fail(function(){
+                alert("could not get data");
+            });
+        </script>
+    </body>
+</html>

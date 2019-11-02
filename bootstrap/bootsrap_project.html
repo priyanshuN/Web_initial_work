@@ -1,0 +1,128 @@
+<html>
+    <head>
+        <title>MyAppWeb</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
+        
+        <style type="text/css">
+            
+            .jumbotron{
+                text-align:center;
+                margin-top:120px;
+            }
+            
+            #mailing{
+                
+                width:410px;
+            }
+            #roll{
+                margin-bottom: 10px;
+            }
+            body{
+                position: relative;
+            }
+        
+        </style>
+        
+    </head>
+    <body>
+        
+        <nav class="navbar navbar-expand navbar-light bg-light navbar fixed-top" id="roll">
+        
+            <a class="navbar-brand" href="#">MyApp</a>
+            <button class="navbar-toggler" type="button" data-toggler="collapse" data-target="#navcontent" aria-expanded="false" aria-label="Toggle navigation"> 
+            <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navcontent">
+            
+                <ul class="navbar-nav ">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#home">Home<span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#down">Download The App</a>
+                    </li>
+                </ul>
+            
+            </div>
+            
+            <form class="form-inline my-2 my-lg-0">
+                  <input class="form-control mr-sm-2" type="email" placeholder="Email" aria-label="Search">
+                  <input class="form-control mr-sm-2" type="password" placeholder="Password" aria-label="Search">
+                  <button class="btn btn-success my-2 my-sm-0" type="submit">Login</button>
+            </form>
+
+            
+        </nav>
+        
+        <div class="jumbotron" id="home">
+          <h1 class="display-3" id="about">My Awesome App!</h1>
+          <p class="lead">This is why YOU should download this App!</p>
+          <hr class="my-4">
+          <p>Want to know more?Join our mailing list!</p>
+          <form class="form-group my-2 my-lg-0" >
+              <div class="container" id="mailing">
+              <!--div class="input-group-prepend">
+                <span class="input-group-text" id="basic-addon1">@</span>
+              </div-->
+              <input class="form-control mr-sm-2" type="email" placeholder="Your Email" aria-label="Search">
+              <button class="btn btn-primary my-2 my-sm-0" type="submit">Sign Up</button> 
+              </div>
+          </form>
+        </div>
+        
+        <div data-spy="scroll" data-target="roll" data-offset="120" id="about">
+        
+            <h2 id="two" align="center">Why This App Is Awesome</h2>
+            <p align="center">Summary, once again, of your app's awesomeness</p>
+            <div class="container">
+            <div  class="card-deck-wrapper">
+            <div class="card-deck">
+              <div class="card">
+                <img class="card-img-top" src="fatherandson.jpg" alt="Card image cap">
+                <div class="card-body">
+                  <h5 class="card-title">Card title</h5>
+                  <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                </div>
+                
+              </div>
+              <div class="card">
+                <img class="card-img-top" src="fatherandson.jpg" alt="Card image cap">
+                <div class="card-body">
+                  <h5 class="card-title">Card title</h5>
+                  <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
+                </div>
+                
+              </div>
+              <div class="card">
+                <img class="card-img-top" src="fatherandson.jpg" alt="Card image cap">
+                <div class="card-body">
+                  <h5 class="card-title">Card title</h5>
+                  <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
+                </div>
+                  
+              </div>
+            </div>
+            </div>
+            </div>
+        </div>
+       <div class="jumbotron" id="down">
+          <h1 class="display-4">Download the App!</h1>
+          <p class="lead">Really, why should I download this app??</p>
+           <p><a href=""><img id="appStoreIcon" src="App-Store-Icon.png" width="200px"></a></p
+        </div>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js">
+        </script>
+        
+    </body>
+</html>

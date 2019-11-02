@@ -1,0 +1,38 @@
+<html>
+    <head>
+        <title>Popover</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        
+    </head>
+    <body>
+        
+        <button type="button" class="btn btn-secondary" data-toggle="tooltip" data-placement="bottom" title="Tooltip on bottom" id="lol">
+          Tooltip on bottom
+        </button>
+        
+        <button type="button" class="btn btn-lg btn-danger" data-toggle="popover" title="Popover title" data-placement="bottom" data-content="And here's some amazing content. It's very engaging. Right?">Click to toggle popover
+        </button>
+    
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js">
+        </script>
+        
+        <script type="text/javascript">
+        
+            $('[data-toggle="popover"]').popover();
+            
+            $('[data-toggle="tooltip"]').tooltip();
+            
+            $("#lol").on('shown.bs.tooltip',function(){
+                
+                alert("Bomb!");
+            });
+            
+        </script>
+        
+    </body>
+</html>

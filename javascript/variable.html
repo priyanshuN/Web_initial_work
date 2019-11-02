@@ -1,0 +1,72 @@
+<html>
+    <head>
+        <title>Variable</title>
+        <style type="text/css">
+            .outro1{
+                margin:10px;
+                float:left;
+            }
+        </style>
+    </head>
+    <body>
+        <input type="text" id="entertext">
+        <button id="first">Change the text</button>
+        <p id="change">This is random text.</p>
+        <input type="text" id ="second">
+        <button id ="secondbutton">Second button</button>
+        <div id ="enter"></div>
+        <!--input id="guess" type="text"-->
+        <p>
+            <select id="guess" class="outro">
+                <option>0</option>
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+            </select>
+            <button id="choice" class="outro">Click</button>
+        </p>
+        <script type="text/javascript">
+            var name="Priyanshu";
+            alert(name);
+            document.getElementById("first").onclick=function(){
+                var textEntered="";
+                textEntered=document.getElementById("entertext").value;
+                alert(textEntered);
+                document.getElementById("change").innerHTML=textEntered;            
+            }
+            var myarray=new Array();
+            myarray[0]="Priyanshu";
+            myarray[1]="Nandan";
+            myarray.splice(1,0,"Cool");
+            console.log(myarray);
+            var x=document.getElementById("second").value;
+            document.getElementById("secondbutton").onclick=function(){
+                var y=(Math.floor(Math.random()*5));
+                if(x==y)
+                    alert("correct idiot");
+                else
+                    alert("daeng");
+            }
+            var x=0;
+            //document.write("<p>");
+            /*for(var i=0;i<5;++i){
+                document.write("<p>");
+                document.write(i);
+            }*/
+            var nameArray="";
+            for(var i=0;i<myarray.length;++i){
+                nameArray = nameArray + "<p>" + myarray[i];
+            }
+            document.getElementById("enter").innerHTML=nameArray;
+            document.getElementById("choice").onclick=function(){
+                var z=document.getElementById("guess").value;
+                var u=Math.floor(Math.random()*4);
+                while(z!=u){
+                    u=Math.floor(Math.random()*4);
+                    alert("No hope.");
+                }
+                alert("Got it fooltech!");
+            }
+        </script>
+    </body>
+</html>

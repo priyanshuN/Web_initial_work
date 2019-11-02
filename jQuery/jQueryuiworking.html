@@ -1,0 +1,63 @@
+<html>
+    <head>
+        <title>Testing jQueryui</title>
+        <script src="jquery-3.3.1.min.js" type="text/javascript"></script>
+        <script src="jquery-ui/jquery-ui.js"></script>
+        <link href="jquery-ui/jquery-ui.css" rel="stylesheet">
+        <style type="text/css">
+            .custom{
+                position:relative;
+                width:100px;
+                height:100px;
+                padding:5px;
+                border-color:red;
+                border-width: 2px;
+                border-style:double;
+                color:blue;
+                float:left;
+                margin:10px;
+            }
+            #dragh{
+                cursor:e-resize;
+            }
+            #dragv{
+                cursor:n-resize;
+            }
+            #container{
+                position:relative;
+                width:200px;
+                height:150px;
+                border:2px solid black;
+                padding:10px;
+                margin-top:120px;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="drag" class="custom">Drag</div>
+        <div id="dragh" class="custom">Horizontal</div>
+        <div id="dragv" class="custom">Vertical</div>
+        <br>
+        <p>
+        <div id="container">
+            <div id="dragc" >Only container</div>
+            <div id="dragp">Only parent</div>
+        </div>
+        </p>
+        <script type="text/javascript">
+            $("#drag").draggable();
+            $("#dragh").draggable({
+                axis:"x"
+            });
+            $("#dragv").draggable({
+                axis:"y"
+            });
+            $("#dragc").draggable({
+                containment:"#container",scroll:false
+            });
+            $("#dragp").draggable({
+                containment:"parent"
+            });
+        </script>
+    </body>
+</html>

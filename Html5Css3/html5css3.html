@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>   
+    <head>
+        <title>My App</title>
+        <meta name="viewport" content="width=device-width,initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+    </head>
+    <body>
+    
+        <form id="myform">
+        
+            <p><input type="text" placeholder="Insert name"></p>
+            <p><input type="text" autofocus></p>
+            <p><input type="text" autocomplete"off"</p>
+            <p>Required:<input type="text" required></p>
+            <p>Email:<input type="email"></p>
+            <p>Pattern:<input type="text" pattern="[0-9]"></p>
+            <datalist id="option">
+                <select>
+                    <option value="rob">Rob</option>
+                    <option value="ram">Ram</option>
+                    <option value="ramu">Ramu</option>
+                </select>
+            </datalist>
+            <p>Auto:<input type="text" list="option"></p>
+            <p>Upload file:<input type="file" multiple></p>
+            <p><input type="submit" value="submit"></p>
+            
+        </form>
+        <p>New:<input type="text" form="myform"></p>
+    
+    </body>
+</html>
